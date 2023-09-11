@@ -1,0 +1,16 @@
+{
+    "main_arm": "left",
+    "chunk_distance": 3,
+    "language": "en_us",
+    "skin_parts": {
+        "rightLegActive": false,
+        "jacketActive": true,
+        "rightSleeveActive": true,
+        "hatActive": true,
+        "capeActive": true,
+        "leftSleeveActive": true,
+        "leftLegActive": false
+    },
+    "chunk_loading": false,
+    "simulation_distance": 10
+}

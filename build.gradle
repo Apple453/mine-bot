@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+group 'net.applee'
+version '0.1'
+
+repositories {
+    mavenCentral()
+
+    flatDir {
+        dirs '.'
+    }
+}
+
+jar {
+    manifest {
+        String libs = ""
+        for (File lib : new File(".").listFiles())
+            libs += lib.getName() + " "
+        libs = libs.substring(0, libs.length()-1)
+        attributes "Class-Path": libs
+    }
+
+
+}
+
+dependencies {
+    File[] fls = new File(".").listFiles();
+    for (File lib : fls) {
+        if (!lib.getName().endsWith(".jar")) continue
+        implementation files(lib)
+    }
+}
+
+allprojects {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:none"
+    }
+}
